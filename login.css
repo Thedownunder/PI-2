@@ -1,0 +1,10 @@
+.custom-border {
+    border-color: #6bda50;
+    border-width: 2px;
+    border-radius: 12px;
+}
+
+.custom-border-focus:focus {
+    border-color: #059b28; /* Cor verde para o foco */
+    box-shadow: none; /* Remove o shadow padrão */
+}
