@@ -10,9 +10,22 @@
 }
 
 .background-gradient {
+    position: relative;
     background: linear-gradient(to bottom, #ad5605, #ffe600);
 }
 
 .doguinho{
-    top: 10px;
+    position: absolute;
+    bottom: 59px;  /* Ajuste o valor para alinhar a imagem verticalmente sobre o input */
+    left: 120px;  /* Coloca a imagem encostada à direita do input */
+    height: 48px;  /* Ajuste o tamanho da imagem, se necessário */
+}
+
+.dogfriends{
+    position: absolute;
+    bottom: 0;  /* Ajuste o valor para alinhar a imagem verticalmente sobre o input */  /* Coloca a imagem encostada à direita do input */
+    left: 0; /* Alinha a imagem à esquerda */
+    max-width: 100%; /* Garante que a imagem não ultrapasse os limites da coluna */
+    height: auto;
+
 }
