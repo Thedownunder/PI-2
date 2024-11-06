@@ -1,8 +1,16 @@
 import React from "react";
 import NavBar from "./NavBar";
+import Sidebar from "./Sidebar";
 
-export default function Login() {
+export default function Home() {
     return(
-        <NavBar />
+        <>
+        <div className="w-screen">
+            <NavBar />
+        </div>
+        <div className="flex w-screen h-screen">
+            <Sidebar />
+        </div>
+        </>
     )
 }

@@ -1,0 +1,18 @@
+.custom-border {
+    border-color: #ddb341;
+    border-width: 2px;
+    border-radius: 12px;
+}
+
+.custom-border-focus:focus {
+    border-color: #9b5f05; /* Cor verde para o foco */
+    box-shadow: none; /* Remove o shadow padrão */
+}
+
+.background-gradient {
+    background: linear-gradient(to bottom, #ad5605, #ffe600);
+}
+
+.doguinho{
+    top: 10px;
+}
