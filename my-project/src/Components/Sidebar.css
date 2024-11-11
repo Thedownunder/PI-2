@@ -14,7 +14,7 @@
   
   /* Define a cor dos dias que não estão no mês atual */
   .react-datepicker__day--outside-month {
-    color: #718096; /* Cor mais clara para dias fora do mês */
+    color: darkslategrey; /* Cor mais clara para dias fora do mês */
   }
 
   .react-datepicker__header {
