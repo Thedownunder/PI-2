@@ -1,38 +1,63 @@
 // Home.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import Sidebar from "./Sidebar";
 import WeeklySchedule from "./WeeklySchedule";
 import EventModal from "./EventModal";
 
+// Função auxiliar para obter o início da semana para uma data
+const getWeekStart = (date) => {
+  const day = new Date(date);
+  const diff = day.getDate() - day.getDay() + (day.getDay() === 0 ? -6 : 1); // Ajusta para segunda-feira como início da semana
+  return new Date(day.setDate(diff)).toDateString();
+};
+
 export default function Home() {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [events, setEvents] = useState([
-    { day: "Segunda", time: "08:00", title: "Meeting", color: "#FF6347" },
-    { day: "Terça", time: "09:00", title: "Workshop", color: "#1E90FF" },
-    { day: "Quarta", time: "12:00", title: "Presentation", color: "#9370DB" },
-    { day: "Quinta", time: "17:00", title: "Client Call", color: "#FFA500" },
-    { day: "Sexta", time: "15:00", title: "Review", color: "#32CD32" },
-  ]);
+  const [eventsByDate, setEventsByDate] = useState({});
+  const [currentEvents, setCurrentEvents] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentEvent, setCurrentEvent] = useState(null);
 
-  // Função para abrir o modal
+  useEffect(() => {
+    // Atualiza os eventos da semana atual quando a data muda
+    const weekStart = getWeekStart(selectedDate);
+    setCurrentEvents(eventsByDate[weekStart] || []);
+  }, [selectedDate, eventsByDate]);
+
+  // Função para abrir o modal de edição/criação de evento
   const handleEventClick = (day, time) => {
     setCurrentEvent({ day, time });
     setIsModalOpen(true);
   };
 
-  // Função para salvar o evento
+  // Função para salvar um evento e organizar por semana
   const handleSaveEvent = (newEvent) => {
-    setEvents((prevEvents) => {
-      // Remove eventos duplicados para o mesmo horário e dia
-      const filteredEvents = prevEvents.filter(
+    const weekStart = getWeekStart(selectedDate);
+    setEventsByDate((prevEventsByDate) => {
+      const updatedWeekEvents = [...(prevEventsByDate[weekStart] || [])];
+      // Remove eventos duplicados no mesmo horário e dia
+      const filteredEvents = updatedWeekEvents.filter(
         (e) => !(e.day === newEvent.day && e.time === newEvent.time)
       );
-      return [...filteredEvents, newEvent];
+      return {
+        ...prevEventsByDate,
+        [weekStart]: [...filteredEvents, newEvent],
+      };
     });
     setIsModalOpen(false);
+  };
+
+  // Função para lidar com a mudança de data no calendário
+  const handleDateChange = (date) => {
+    const newWeekStart = getWeekStart(date);
+    const currentWeekStart = getWeekStart(selectedDate);
+
+    if (newWeekStart !== currentWeekStart) {
+      // Muda para uma nova semana e atualiza os eventos da semana selecionada
+      setCurrentEvents(eventsByDate[newWeekStart] || []);
+    }
+    setSelectedDate(date);
   };
 
   return (
@@ -41,8 +66,8 @@ export default function Home() {
         <NavBar />
       </div>
       <div className="flex h-screen">
-        <Sidebar onDateChange={setSelectedDate} />
-        <WeeklySchedule events={events} selectedDate={selectedDate} onEventClick={handleEventClick} />
+        <Sidebar onDateChange={handleDateChange} />
+        <WeeklySchedule events={currentEvents} selectedDate={selectedDate} onEventClick={handleEventClick} />
         {isModalOpen && (
           <EventModal
             event={currentEvent}
