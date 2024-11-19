@@ -1,10 +1,11 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Agendamentos', href: '#', current: true },
+  { name: 'Agendamentos', path: '/home', current: false },
   { name: 'Venda e estoque', href: '#', current: false },
-
+  { name: 'Cadastro do Cliente', path: '/cadastro-cliente', current: false },
 ]
 
 function classNames(...classes) {
@@ -36,9 +37,9 @@ export default function NavBar() {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.path}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
                       item.current ? 'bg-orange-900 text-white' : 'text-white hover:bg-orange-900 hover:text-white',
@@ -46,7 +47,7 @@ export default function NavBar() {
                     )}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

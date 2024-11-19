@@ -37,7 +37,7 @@ export default function Login() {
                         ))}
                     </div>
                 </div>
-                <div className="w-screen h-screen flex items-center justify-center">
+                <div className="w-screen h-screen flex   justify-center">
                     <div className="login-form">
                         <InputLogin
                             username={username}
