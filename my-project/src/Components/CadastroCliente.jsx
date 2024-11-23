@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; // Importa o estilo do DatePicker
+import InputMask from 'react-input-mask';
 
 export default function CadastroCliente() {
   const [dataNascimento, setDataNascimento] = useState(null);
@@ -42,14 +43,23 @@ export default function CadastroCliente() {
               <div className="sm:col-span-3">
                 <label htmlFor="telefone" className="block text-sm/6 font-medium text-gray-900">Telefone</label>
                 <div className="mt-2">
-                  <input type="text" name="telefone" id="telefone" maxLength={11} placeholder="( )_____-____" autoComplete="given-telefone" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
+                  <InputMask
+                    type="text"
+                    mask="+55 (99) 99999-9999"
+                    maskChar=""
+                    name="telefone"
+                    id="telefone"
+                    autoComplete="tel"
+                    className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm"
+                  />
+                  {/* <input type="text" name="telefone" id="telefone" maxLength={11} placeholder="( )_____-____" autoComplete="given-telefone" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" /> */}
                 </div>
               </div>
 
               <div className="sm:col-span-3">
-                <label htmlFor="country" className="block text-sm/6 font-medium text-gray-900">Sexo</label>
+                <label htmlFor="sexo" className="block text-sm/6 font-medium text-gray-900">Sexo</label>
                 <div className="mt-2">
-                  <select id="country" name="country" autoComplete="country-name" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm">
+                  <select id="sexo" name="sexo" autoComplete="sexo" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm">
                     <option>Masculino</option>
                     <option>Feminino</option>
                     <option>Outro</option>
@@ -60,19 +70,30 @@ export default function CadastroCliente() {
               <div className="sm:col-span-3">
                 <label htmlFor="cpf" className="block text-sm/6 font-medium text-gray-900">CPF</label>
                 <div className="mt-2">
-                  <input type="text" name="cpf" id="cpf" maxLength={11} autoComplete="cpf" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
+                  <InputMask
+                    type="text"
+                    mask="999.999.999-99"
+                    maskChar=""
+                    name="cpf"
+                    id="cpf"
+                    autoComplete="cpf"
+                    className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm"
+                  />
+                  {/* <input type="text" name="cpf" id="cpf" maxLength={11} autoComplete="cpf" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" /> */}
                 </div>
               </div>
 
               <div className="sm:col-span-3">
                 <label htmlFor="data-nasc" className="block text-sm/6 font-medium text-gray-900">Data de nascimento</label>
                 <div className="mt-2">
-                  <DatePicker
-                    selected={dataNascimento}
-                    onChange={(date) => setDataNascimento(date)}
+                  <InputMask
+                    type="text"
+                    mask="99/99/9999"
+                    maskChar=""
+                    name="data-nasc"
+                    id="data-nasc"
+                    autoComplete="data-nasc"
                     className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm"
-                    dateFormat="dd/MM/yyyy"  // Exibe dia/mês/ano
-                    placeholderText="DD/MM/AAAA"
                   />
                 </div>
               </div>
