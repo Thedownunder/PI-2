@@ -19,21 +19,14 @@ export default function CadastroCliente() {
             <p className="mt-1 text-sm/6 text-gray-600">Insira abaixo as informações do cliente</p>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="sm:col-span-3">
-                <label htmlFor="first-name" className="block text-sm/6 font-medium text-gray-900">Nome</label>
+              <div className="sm:col-span-6">
+                <label htmlFor="name" className="block text-sm/6 font-medium text-gray-900">Nome Completo</label>
                 <div className="mt-2">
-                  <input type="text" name="first-name" id="first-name" autoComplete="given-name" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
+                  <input type="text" name="name" id="name" autoComplete="given-name" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
                 </div>
               </div>
 
               <div className="sm:col-span-3">
-                <label htmlFor="last-name" className="block text-sm/6 font-medium text-gray-900">Sobrenome</label>
-                <div className="mt-2">
-                  <input type="text" name="last-name" id="last-name" autoComplete="family-name" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
-                </div>
-              </div>
-
-              <div className="sm:col-span-4">
                 <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">Email</label>
                 <div className="mt-2">
                   <input id="email" name="email" type="email" autoComplete="email" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
@@ -98,6 +91,42 @@ export default function CadastroCliente() {
                 </div>
               </div>
 
+              <div className="sm:col-span-3">
+                <label htmlFor="estado" className="block text-sm/6 font-medium text-gray-900">Estado</label>
+                <div className="mt-2">
+                  <select id="estado" name="estado" autoComplete="estado" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm">
+                    <option value="" disabled selected>Selecione um estado</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                  </select>
+                </div>
+              </div>
+
               <div className="sm:col-span-2 sm:col-start-1">
                 <label htmlFor="city" className="block text-sm/6 font-medium text-gray-900">Cidade</label>
                 <div className="mt-2">
@@ -106,32 +135,62 @@ export default function CadastroCliente() {
               </div>
 
               <div className="sm:col-span-2">
-                <label htmlFor="region" className="block text-sm/6 font-medium text-gray-900">Estado</label>
+                <label htmlFor="postal-code" className="block text-sm/6 font-medium text-gray-900">CEP</label>
                 <div className="mt-2">
-                  <input type="text" name="region" id="region" autoComplete="address-level1" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
+                  <InputMask
+                    type="text"
+                    mask="99999-999"
+                    maskChar=""
+                    name="postal-code"
+                    id="postal-code"
+                    autoComplete="postal-code"
+                    className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm"
+                  />
+                  {/* <input type="text" name="postal-code" id="postal-code" autoComplete="postal-code" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm"/> */}
                 </div>
               </div>
 
               <div className="sm:col-span-2">
-                <label htmlFor="postal-code" className="block text-sm/6 font-medium text-gray-900">CEP</label>
+                <label htmlFor="bairro" className="block text-sm/6 font-medium text-gray-900">Bairro</label>
                 <div className="mt-2">
-                  <input type="text" name="postal-code" id="postal-code" autoComplete="postal-code" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm"/>
+                  <input id="bairro" name="bairro" type="bairro" autoComplete="street" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
+                </div>
+              </div>
+
+              <div className="col-span-3">
+                <label htmlFor="rua" className="block text-sm/6 font-medium text-gray-900">Rua</label>
+                <div className="mt-2">
+                  <input type="text" name="rua" id="rua" autoComplete="rua" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
+                </div>
+              </div>
+
+              <div className="col-span-3">
+                <label htmlFor="numero" className="block text-sm/6 font-medium text-gray-900">Número</label>
+                <div className="mt-2">
+                  <input type="text" name="numero" id="numero" autoComplete="numero" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
                 </div>
               </div>
 
               <div className="col-span-full">
-                <label htmlFor="street-address" className="block text-sm/6 font-medium text-gray-900">Complemento</label>
+                <label htmlFor="street-address" className="block text-sm/6 font-medium text-gray-900">Endereço</label>
                 <div className="mt-2">
                   <input type="text" name="street-address" id="street-address" autoComplete="street-address" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
+                </div>
+              </div>
+
+              <div className="col-span-full">
+                <label htmlFor="complemento" className="block text-sm/6 font-medium text-gray-900">Complemento</label>
+                <div className="mt-2">
+                  <input type="text" name="complemento" id="complemento" autoComplete="complemento" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm" />
                 </div>
               </div>
             </div>
           </div>
         </form>
       </div>
-      <div className="mt-6 flex items-center justify-center gap-x-6">
-        <button type="button" className="text-sm/6 font-semibold text-gray-900">Cancel</button>
-        <button type="submit" className="rounded-md bg-orange-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+      <div className="mb-4 flex items-center justify-center gap-x-6">
+        <button type="button" className="text-sm/6 font-semibold rounded-md px-3 py-2 hover:bg-yellow-900 hover:text-white text-gray-900">Cancelar</button>
+        <button type="submit" className="rounded-md bg-orange-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-yellow-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Salvar</button>
       </div>
     </>
   );

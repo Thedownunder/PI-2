@@ -44,7 +44,7 @@ export default function EventModal({ event, onClose, onSave }) {
         <div className="mt-2 mb-2">
           <label htmlFor="animal" className="block text-sm/6 font-medium text-gray-900">Animal</label>
           <select id="animal" name="animal" autoComplete="animal" className="block w-full rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-orange-600 focus:outline-none focus:ring-2 sm:text-sm">
-            <option>-------------</option>
+            <option>------------</option>
             {/* <option>Finalizado</option> */}
           </select>
         </div>
