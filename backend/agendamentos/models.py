@@ -16,7 +16,7 @@ class Agendamento(models.Model):
     horario = models.TimeField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES)
     servico = models.CharField(max_length=100)
-    Cliente = models.ForeignKey(
+    cliente = models.ForeignKey(
         Cliente,
         on_delete=models.CASCADE
     )
