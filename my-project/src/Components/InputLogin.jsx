@@ -41,7 +41,7 @@ export default function InputLogin({ username, setUsername, password, setPasswor
                     Senha
                   </label>
                   <div className="text-sm">
-                    <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                    <a href="#" className="font-semibold text-orange-800 hover:text-yellow-900">
                       Esqueceu a senha?
                     </a>
                   </div>
@@ -63,7 +63,7 @@ export default function InputLogin({ username, setUsername, password, setPasswor
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-orange-800 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Entrar
                 </button>
