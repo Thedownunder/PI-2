@@ -12,6 +12,10 @@ export default function CadastroCliente() {
       <div>
         <NavBar />
       </div>
+
+      <div className="flex">Cadastro Cliente</div>
+      <div className="flex">Cadastro Cliente</div>
+      
       <div className="flex items-center justify-center py-10">
         <form>
           <div className="min-h-full flex-1 flex-col justify-center border-b border-gray-900/10 pb-12">
