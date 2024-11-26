@@ -35,7 +35,7 @@ class Funcionario(models.Model):
         help_text='Formato: 00000-000'
     )  # CEP no formato 00000-000
 
-    numero = models.PositiveIntegerField()
+    numero = models.CharField(max_length=10)
     endereco = models.CharField(max_length=255)
     complemento = models.CharField(max_length=100, blank=True, null=True)
     rua = models.CharField(max_length=100)
@@ -78,7 +78,7 @@ class Funcionario(models.Model):
     password_last_changed = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.nome} ({self.cpf}) - Cargo: {self.cargo}"
+        return f"{self.nome_completo} ({self.cpf}) - Cargo: {self.cargo}"
     
     def save(self, *args, **kwargs):
         if not self.chave:

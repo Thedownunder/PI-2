@@ -77,7 +77,7 @@ class Cliente(models.Model):
     historico = HistoricalRecords()  # Adiciona histórico para auditoria
 
     def __str__(self):
-        return self.nome # Retorna o nome do cliente, representando ele como string.
+        return self.nome_completo # Retorna o nome do cliente, representando ele como string.
     
 
 
